@@ -45,6 +45,7 @@ public class MoneySaver {
 
     public static void main(String[] args) {
 
+        // Remove these because you are not using them
         /*Account a = new Account(100);
         System.out.println(a);
         a.setAmount(20);

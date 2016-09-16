@@ -7,6 +7,8 @@ import java.util.Comparator;
  * Created by DHZ_Bill on 9/12/16.
  */
 public class Farm {
+    // Convention is to name variable starting lowercase
+    // Also, can I suggest to name it animalList
     ArrayList<Animal> ListOfAnimals= new ArrayList<Animal>();
 
     public void addAnimal(Animal ani){
@@ -19,6 +21,7 @@ public class Farm {
 
     public ArrayList<Animal> getHeaviestAnimals(){
         ArrayList<Animal> heaviestAnimals = new ArrayList(ListOfAnimals);
+        // Nice!
         Collections.sort(heaviestAnimals, new Comparator<Animal>() {
             @Override
             public int compare(Animal ani1, Animal ani2){
@@ -34,6 +37,7 @@ public class Farm {
     public void printCatNames(){
         for (int i=0; i< ListOfAnimals.size(); i++) {
             Animal ani = ListOfAnimals.get(i);
+            // Checks are nice
             if (ani.getSpecies() == "Cat"){
                 System.out.println(ani.getName());
             }
