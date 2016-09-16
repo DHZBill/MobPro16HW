@@ -29,15 +29,22 @@ public class MainActivity extends FragmentActivity {
                 // Switch from MainActivityFragment to Settings.
                 // I learned from the code here:
                 // http://stackoverflow.com/questions/7793576/switching-between-fragment-view
-                Fragment fragment = new Settings();
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.add(R.id.container, fragment, "Settings");
-                transaction.addToBackStack(null);
-                transaction.commit();
-                button.setText("Back");
-
-                // I didn't make the switch button work.
-                // It only switches from ToDoList to Settings, but does not switch back.
+                if(button.getText()=="Settings") {
+                    Fragment fragment = new Settings();
+                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                    transaction.replace(R.id.container, fragment, "Settings");
+                    transaction.addToBackStack(null);
+                    transaction.commit();
+                    button.setText("Back");
+                }
+                else{
+                    Fragment fragment = new MainActivityFragment();
+                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                    transaction.replace(R.id.container, fragment, "MainActivityFragment");
+                    transaction.addToBackStack(null);
+                    transaction.commit();
+                    button.setText("Settings");
+                }
             }
         });
     }
