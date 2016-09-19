@@ -1,4 +1,4 @@
-package bill.lesson4hw;
+package bill.lesson3hw;
 
 import org.junit.Test;
 

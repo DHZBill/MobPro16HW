@@ -1,0 +1,57 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="bill.lesson3hw.Settings">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:layout_gravity="center"
+        android:textColor="#010101" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/yellowButton"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="133dp"
+        android:background="#eaff03"
+        android:checked="false"
+        android:clickable="false"
+        android:text="Yellow" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/greenButton"
+
+        android:layout_below="@+id/yellowButton"
+        android:layout_alignLeft="@+id/yellowButton"
+        android:layout_alignStart="@+id/yellowButton"
+        android:layout_marginTop="56dp"
+        android:background="#08ff00"
+        android:text="Green"
+        android:checked="false" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Blue"
+        android:id="@+id/blueButton"
+        android:layout_below="@+id/greenButton"
+        android:layout_alignLeft="@+id/greenButton"
+        android:layout_alignStart="@+id/greenButton"
+        android:layout_marginTop="56dp"
+        android:background="#003cff"
+        android:checked="false" />
+
+
+</RelativeLayout>
