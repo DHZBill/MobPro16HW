@@ -20,10 +20,13 @@ import butterknife.ButterKnife;
  * Create a custom adapter
  */
 public class ToDoAdapter extends ArrayAdapter<ToDoItem> {
+
+    // Awesome work on Butterknife
     @BindView(R.id.listItem) TextView listItem;
+    // Instead of an Edit button, you can also set an onClickListener on the listItem
     @BindView(R.id.editButton) Button editButton;
     @BindView(R.id.deleteButton)
-    Button deleteButton;
+    Button deleteButton; // I would make this button private
     public ToDoAdapter(Context context, ArrayList<ToDoItem> items) {
         super(context, 0, items);
     }

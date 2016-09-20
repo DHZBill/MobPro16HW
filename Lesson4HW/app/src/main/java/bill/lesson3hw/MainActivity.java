@@ -21,6 +21,9 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Your activity_main.xml has a list as well as fragment_main.xml
+        // You can remove the repetition by removing one of the lists. I suggest to keep the one in fragment_main.xml
+
         // Creates an OnClickListener for the button
         button = (Button) findViewById(R.id.settings);
         button.setOnClickListener(new View.OnClickListener() {
