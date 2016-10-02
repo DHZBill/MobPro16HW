@@ -1,7 +1,7 @@
 package bill.lesson3hw;
 
 import android.content.SharedPreferences;
-import android.graphics.Color;
+import android.graphics.Color; // Remove unused imports
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -19,7 +19,7 @@ import android.widget.RelativeLayout;
  */
 public class MainActivity extends FragmentActivity {
     DatabaseHelper myDb;
-    public static final String SettingsName = "backgroundColor";
+    public static final String SettingsName = "backgroundColor"; // Do you need it to be public? Can you make it private?
     Button button;
 
     // Sets the view
@@ -44,6 +44,7 @@ public class MainActivity extends FragmentActivity {
                 // Switch from MainActivityFragment to Settings.
                 // I learned from the code here:
                 // http://stackoverflow.com/questions/7793576/switching-between-fragment-view
+                // Awesome
                 if(button.getText()=="Settings") {
                     Fragment fragment = new Settings();
                     FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -77,6 +78,7 @@ public class MainActivity extends FragmentActivity {
         SharedPreferences.Editor editor = settings.edit();
         editor.putInt("backgroundColor", colorId); // put the current color data into the file
         editor.commit(); // commit the edits
+        // You could also use .apply() instead!
     }
 }
 

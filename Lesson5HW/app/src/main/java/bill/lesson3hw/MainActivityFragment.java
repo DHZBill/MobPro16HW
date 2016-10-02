@@ -18,6 +18,7 @@ import butterknife.ButterKnife;
  * The ToDoList Fragment contains a list of 5 textViews. Pops up an alert dialog for input
  * when clicking on a textView.
  */
+// Nice class descriptions
 public class MainActivityFragment extends Fragment {
     DatabaseHelper myDb;
     @BindView(R.id.lvItems) ListView listView;
@@ -44,8 +45,10 @@ public class MainActivityFragment extends Fragment {
         // get all data from the database
         Cursor data = myDb.getAllData();
         // use data to construct items and add the items to adapter
+
+        // You should move this to a method in the helper
         if (data.moveToFirst()) {
-            while (data.isAfterLast() == false) {
+            while (data.isAfterLast() == false) { // Can be rewritten as while (!data.isAfterLast())
                 String toDo = data.getString(data.getColumnIndex("TODO"));
                 long id = data.getLong(data.getColumnIndex("ID"));
                 ToDoItem item = new ToDoItem(toDo);
