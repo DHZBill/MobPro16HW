@@ -35,7 +35,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_2, toDo);
-        long result = db.insert(TABLE_NAME, null, contentValues);
+        long result = db.insert(TABLE_NAME, null, contentValues); // You can just return db.insert(... You dont need result variable
         return result;
     }
     // change a ToDoItem in the database
