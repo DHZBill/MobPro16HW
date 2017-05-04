@@ -10,6 +10,7 @@ public abstract class Animal {
     private String species;
     private double weight;
 
+    // Usually, you put all the arguments in one line. 
     public Animal(
                   String name,
                   String color
@@ -17,6 +18,8 @@ public abstract class Animal {
                   //double weight,
                   //int legs
     ){
+        // Try to clean up the code before submitting.
+        // Remove lines of code that aren't being used
         //this.legs = legs;
         this.legs = 0;
         this.color = color;
@@ -24,12 +27,12 @@ public abstract class Animal {
         this.species = "";
         this.weight = 0;
 
-
+        // Same here. Remove the whitespace 
 
 
     }
 
-
+    // Nice! Proper naming convention
     public int getLegs(){
         return this.legs;
     }

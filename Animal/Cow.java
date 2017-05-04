@@ -16,6 +16,7 @@ public class Cow extends Animal{
         Random rnd = new Random();
         setLegs(4);
         setSpecies("Cow");
+        // You can make it concise by writing (new Random()).nextDouble()
         setWeight(Math.round(rnd.nextDouble() * 100 + 100));
     }
 
