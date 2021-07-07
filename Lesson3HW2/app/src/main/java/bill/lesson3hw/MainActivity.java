@@ -29,21 +29,23 @@ public class MainActivity extends FragmentActivity {
                 // Switch from MainActivityFragment to Settings.
                 // I learned from the code here:
                 // http://stackoverflow.com/questions/7793576/switching-between-fragment-view
-                if(button.getText()=="Settings") {
+                /* POINTS DEDUCTED
+                "Settings" and "Back" need to be stored in strings.xml!
+                 */
+                if (button.getText() == getResources().getString(R.string.action_settings)) {
                     Fragment fragment = new Settings();
                     FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                     transaction.replace(R.id.container, fragment, "Settings");
                     transaction.addToBackStack(null);
                     transaction.commit();
-                    button.setText("Back");
-                }
-                else{
+                    button.setText(getResources().getString(R.string.back));
+                } else{
                     Fragment fragment = new MainActivityFragment();
                     FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                     transaction.replace(R.id.container, fragment, "MainActivityFragment");
                     transaction.addToBackStack(null);
                     transaction.commit();
-                    button.setText("Settings");
+                    button.setText(getResources().getString(R.string.action_settings));
                 }
             }
         });

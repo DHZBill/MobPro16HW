@@ -37,22 +37,27 @@ public class Settings extends Fragment {
         colorList.add(greenButton);
         colorList.add(blueButton);
 
-        // For each button, creates an OnClickListener that changes the background color
-        for (int i = 0; i < colorList.size(); i++) {
-            final Button button = colorList.get(i);
+        // SUGGESTION: Use this for loop instead
+        for (final Button button : colorList) {
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (button.getId() == R.id.yellowButton){
-                        view.setBackgroundColor(Color.YELLOW);
-                    }
-                    else if (button.getId() == R.id.greenButton){
-                        view.setBackgroundColor(Color.GREEN);
-                    }
-                    else if (button.getId() == R.id.blueButton){
-                        view.setBackgroundColor(Color.BLUE);
-                    }
+                    /* SUGGESTION:
+                    Use switch statement (I know these weren't covered in class, but it's good practice!
+                    */
+                    switch (button.getId()) {
+                        case R.id.yellowButton:
+                            view.setBackgroundColor(Color.YELLOW);
+                            break;
 
+                        case R.id.greenButton:
+                            view.setBackgroundColor(Color.GREEN);
+                            break;
+
+                        case R.id.blueButton:
+                            view.setBackgroundColor(Color.BLUE);
+                            break;
+                    }
                 }
 
             });

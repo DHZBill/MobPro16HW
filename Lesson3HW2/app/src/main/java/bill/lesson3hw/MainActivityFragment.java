@@ -13,6 +13,9 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.view.View.OnClickListener;
+
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 
@@ -23,8 +26,7 @@ import java.util.ArrayList;
 public class MainActivityFragment extends Fragment {
     private String m_Text = "";                                     // declare user input
 
-    public MainActivityFragment() {
-    }
+    public MainActivityFragment() {}
 
     /**
      * Create a view.
@@ -41,17 +43,19 @@ public class MainActivityFragment extends Fragment {
         TextView item4 = (TextView) v.findViewById(R.id.listItem4);
         TextView item5 = (TextView) v.findViewById(R.id.listItem5);
 
-        //put them into an ArrayList
-        final ArrayList<TextView> itemList = new ArrayList<>();
+        /* SUGGESTION
+        If you know the exact size of the ArrayList, good practice would be to declare the size
+        in the constructor.
+        */
+        final ArrayList<TextView> itemList = new ArrayList<>(5);
         itemList.add(item1);
         itemList.add(item2);
         itemList.add(item3);
         itemList.add(item4);
         itemList.add(item5);
 
-        // for each textView, creates an OnCLickListener
-        for (int i = 0; i < itemList.size(); i++) {
-            final TextView item = itemList.get(i);
+        // SUGGESTION: Use this for loop if indices do not matter
+        for (final TextView item : itemList) {
             item.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -59,22 +63,31 @@ public class MainActivityFragment extends Fragment {
                     // Creates an AlertDialog. I learned from the code here:
                     // http://stackoverflow.com/questions/10903754/input-text-dialog-android
                     AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
-                    builder.setTitle("What to do?");
+
+                    // Strings need to go into strings.xml!!
+                    builder.setTitle(getResources().getString(R.string.dialog_title));
 
                     // Set up the input
                     final EditText input = new EditText(v.getContext());
+
+                    /* POINTS DEDUCTED
+                    Comment here. I don't know what this means. Also, quick look up
+                    shows that InputType.TYPE_CLASS_TEXT = 1. So 1 | 1 = 1. The stackoverflow
+                    page has it as TYPE_CLASS_TEXT or TYPE_TEXT_VARIATION_PASSWORD. You should
+                    aim to understand and be able to explain lines like these in comments next
+                    time.
+                    */
                     input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_CLASS_TEXT);
                     builder.setView(input);
 
-                    // Set up the buttons
-                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    // You can chain the methods like so:
+                    builder.setPositiveButton(getResources().getString(R.string.dialog_ok), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             m_Text = input.getText().toString();
-                            item.setText(m_Text);;
+                            item.setText(m_Text);
                         }
-                    });
-                    builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    }).setNegativeButton(getResources().getString(R.string.dialog_cancel), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.cancel();
